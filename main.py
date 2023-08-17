@@ -6,7 +6,7 @@ from flask_restful import Api, Resource, reqparse  # flask_restful is an extensi
 app = Flask(__name__)  # Create an instance of this class.
 api = Api(app)  # main entry point of the application. You need to initialize it with a Flask Application object (app)
 
-rider_data = {'R0': 'Karim', 'R1': 'Somya', 'R2': 'Manuja'}  # Contains ID:Name of riders.
+rider_data = {'R0': 'Karim', 'R1': 'Sarvesh', 'R2': 'Phil'}  # Contains ID:Name of riders.
 
 
 class HelloWorld(Resource):
