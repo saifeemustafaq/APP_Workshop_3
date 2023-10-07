@@ -6,7 +6,7 @@ from flask_restful import Api, Resource, reqparse  # flask_restful is an extensi
 app = Flask(__name__)  # Create an instance of this class.
 api = Api(app)  # main entry point of the application. You need to initialize it with a Flask Application object (app)
 
-rider_data = {'R0': 'Karim', 'R1': 'Sarvesh', 'R2': 'Phil'}  # Contains ID:Name of riders.
+rider_data = {'R0': 'Karim', 'R1': 'Sarvesh', 'R2': 'Gladys'}  # Contains ID:Name of riders.
 
 
 class HelloWorld(Resource):
@@ -26,7 +26,7 @@ class RiderResource(Resource):
     def get(self):
         get_parser = reqparse.RequestParser()  # From flask library.
         get_parser.add_argument('id',
-                                type=str)  # Expect a query param called "id". Replicate this line for each query param.
+                                type=str, location='args')  # Expect a query param called "id". Replicate this line for each query param.
         args = get_parser.parse_args()  # Stores value of "id" (and any other query params), defaults to None.
         if args.id in rider_data:  # Check if "id" exists.
             sample_response = "Rider with ID %s is %s" % (args.id, rider_data[args.id])
